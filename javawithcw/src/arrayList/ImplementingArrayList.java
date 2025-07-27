@@ -4,17 +4,30 @@ import java.util.Arrays;
 
 public class ImplementingArrayList {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Nobita");
-        list.add("Doraemon");
-        list.add("Shizuka");
-        list.add("Dekisugi");
-        list.add("Sunio");
-        list.removeValue("Dekisugi");
-        list.remove(3);
-        System.out.println("capacity " + list.capacity());
-        list.add("Giyan");
-        System.out.println("list = " + list.toString());
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            list.add(i);
+        }
+        list.addAtIndex(11,2);
+        System.out.println(list.toString());
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        list.addAtIndex(6,3);
+        list.addAtIndex(16,3);
+        list.addAtIndex(26,3);
+        list.addAtIndex(36,3);
+        list.addAtIndex(46,3);
+        list.addAtIndex(56,3);
+        list.addAtIndex(66,3);
+        list.addAtIndex(76,3);
+        list.addAtIndex(86,3);
+        list.addAtIndex(96,3);
+        list.addAtIndex(106,3);
+        list.addAtIndex(116,3);
+        list.removeValue(6);
+        System.out.println(list.toString());
     }
 }
 
@@ -61,7 +74,7 @@ class ArrayList<T> {
             System.out.println("Index out of bounds");
             return;
         }
-        if(this.index == this.size){
+        if(this.index == this.size){                   //if the index reaches to arr.length than we have to increase the size of arr to add the value
             this.size = arr.length*2;
             T[] newArray = (T[])new Object[size];
             System.arraycopy(arr, 0, newArray, 0, arr.length);
@@ -78,8 +91,11 @@ class ArrayList<T> {
             this.index++;
             return;
         }
-        arr[this.index++] = element;
-
+        for (int i = this.index; i > index ; i--) {
+            arr[i] = arr[i-1];
+        }
+        arr[index] = element;
+        this.index++;
     }
 
     //Method for removing an element from a particular index with return value
