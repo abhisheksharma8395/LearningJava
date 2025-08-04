@@ -7,7 +7,7 @@ public class exceptionHandling {
         try{
             System.out.println(a/b);
         }
-        catch(ArithmeticException e){
+        catch(Exception e){
             System.out.println(e);
         }
     }
