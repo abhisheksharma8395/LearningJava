@@ -21,16 +21,16 @@ public class ConstructBfs {
         Queue<TreeNode> pq = new LinkedList<>();
         pq.add(root);
         int i = 1;
-        while(i<n-1){
+        while(i<n){
             TreeNode temp = pq.remove();
-            if(i<n-1 && !arr[i].equals("")){
+            if(i<n && !arr[i].equals("")){
                 int l = Integer.parseInt(arr[i]);
                 TreeNode left = new TreeNode(l);
                 temp.LeftNode = left;
                 pq.add(left);
             }
             i++;
-            if(i<n-1 && !arr[i].equals("")){
+            if(i<n && !arr[i].equals("")){
                 int r = Integer.parseInt(arr[i]);
                 TreeNode right = new TreeNode(r);
                 temp.RightNode = right;
@@ -59,7 +59,7 @@ public class ConstructBfs {
     }
 
     public static void main(String[] args) {
-        String[] str = {"1","2","3","4","5","","6","","7","","","8","","","","9",""};
+        String[] str = {"1","2","3","4","5","6","7","8","9","","10","","11","12","","13","14","","","","","","","15"};
         TreeNode root = ConstructBFS(str);
         BFS(root);
     }
